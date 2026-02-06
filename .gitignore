@@ -1,0 +1,19 @@
+# Java
+target/
+*.class
+
+# JDK (never commit)
+temurin17/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+jdk/
+*.jdk
+
+# IDE
+.vscode/
+.idea/
