@@ -19,12 +19,14 @@ public class UserService {
     public List<User> getAllUsers() { return userRepository.findAll(); }
 
     public User getUserById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.findById(id).orElse(null);
     }
 
     public User updateUser(Long id, User userDetails) {
         User user = getUserById(id);
+        if (user == null) {
+            return null;
+        }
         user.setName(userDetails.getName());
         user.setEmail(userDetails.getEmail());
         user.setPassword(userDetails.getPassword());
